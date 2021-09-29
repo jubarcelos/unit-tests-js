@@ -11,7 +11,28 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-//já vejo
-const average = () => {};
+
+// function sum(array){
+//   let total = 0;
+//   for (let index in array) {
+//     total += array[index];
+//   }
+// }
+// if (Number.isNaN(array)) {
+//   const total = sum(array);
+//   const mean = total/(array.length);
+//   return Math.round(mean);
+
+const average = (array) => {
+  if ( typeof(array.ever == "number")) {
+   const sum = array.reduce((t, n) => n+t , 0);
+   const meanRound = Math.round(sum/array.length);
+   console.log(meanRound);
+  } else {
+  console.log(undefined);
+ }
+};
+average([3,4,5]);
+
 
 module.exports = average;

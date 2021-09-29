@@ -24,15 +24,14 @@
 //   return Math.round(mean);
 
 const average = (array) => {
-  if ( typeof(array.ever == "number")) {
-   const sum = array.reduce((t, n) => n+t , 0);
-   const meanRound = Math.round(sum/array.length);
-   console.log(meanRound);
-  } else {
-  console.log(undefined);
- }
+  if (array.length === 0) {
+    return undefined;
+  }
+  if (array.every((num) => typeof (num) === 'number')) {
+    const sum = array.reduce((t, n) => n + t, 0);
+    const meanRound = Math.round(sum / array.length);
+    return meanRound;
+  } 
 };
-average([3,4,5]);
-
 
 module.exports = average;

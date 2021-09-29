@@ -12,17 +12,6 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-// function sum(array){
-//   let total = 0;
-//   for (let index in array) {
-//     total += array[index];
-//   }
-// }
-// if (Number.isNaN(array)) {
-//   const total = sum(array);
-//   const mean = total/(array.length);
-//   return Math.round(mean);
-
 const average = (array) => {
   if (array.length === 0) {
     return undefined;

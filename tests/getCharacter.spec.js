@@ -42,14 +42,41 @@ Retorno:
 */
 
 describe('9 - Implemente os casos de teste da função `getCharacter`', () => {
-  it('Verifica se a função `getCharacter` retorna o objeto do personagem corretamente.', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-    // Teste se a função retorna o objeto correto para o parâmetro 'Arya',
-    // Teste se a função retorna o objeto correto para o parâmetro 'Brienne',
-    // Teste se a função retorna o objeto correto para o parâmetro 'Melissandre',
-    // Teste se os parâmetros não são Case Sensitive.
-    // Teste se ao passar um nome que não está na tabela, a função retorna undefined.
+  it('Verifica se a função `getCharacter` quando não recebe nenhum parâmetro, retorna undefined.', () => {
+    expect(getCharacter()).toBeUndefined();
+  });
+  it('Verifica se a função `getCharacter` retorna o objeto correto para o parâmetro `Arya`', () => {
+    expect(getCharacter('arya')).toEqual(
+      { name: 'Arya Stark',
+      class: 'Rogue',
+      phrases: ['Not today', 'A girl has no name.'],
+    })
+  });
+
+  it('Verifica se a função `getCharacter` retorna o objeto correto para o parâmetro `Brienne`', () => {
+    expect(getCharacter('brienne').name).toEqual('Brienne Tarth');
+    expect(getCharacter('brienne').class).toEqual('Knight');
+    expect(getCharacter('brienne').phrases).toEqual(['Im No Lady, Your Grace.', 'I, Brienne Of Tarth, Sentence You To Die.']);
+  });
+
+  it('Verifica se a função `getCharacter` retorna o objeto correto para o parâmetro `Melissandre`', () => {
+    expect(getCharacter('melissandre')).toEqual(
+      {
+      class: 'Necromancer',
+      name: 'Melissandre',
+      phrases: ['Death By Fire Is The Purest Death.', 'For The Night Is Dark And Full Of Terrors.'],
+    });
+  });
+  it('Verifica se aos parâmetros não são Case Sensitive.', () => {
+    expect(getCharacter('ArYa')).toEqual(
+      { name: 'Arya Stark',
+      class: 'Rogue',
+      phrases: ['Not today', 'A girl has no name.'],
+    })
+  });
+  
+  it('Verifica se a função `getCharacter` retorna undefined quando receber um nome que não está na tabela.', () => {
+    expect(getCharacter('julia')).toBeUndefined();
+
   });
 });

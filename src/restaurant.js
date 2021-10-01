@@ -79,10 +79,10 @@ const finishedRequest = () => {
   let foods = restaurant.fetchMenu().food;
   let drink = restaurant.fetchMenu().drinks;
   let requestAll = restaurant.consumption; // array
-  
+  // OBRIGADA Guilherme Augusto pela paciência em me ajudar a entender essas chamadas de objetos.
   for (let i = 0; i < requestAll.length; i += 1) {
     if (Object.keys(foods).includes(requestAll[i])) {
-      totalToPay += foods[`${requestAll[i]}`];
+      totalToPay += foods[`${requestAll[i]}`];    
     }
     if (Object.keys(drink).includes(requestAll[i])) {
       totalToPay += drink[`${requestAll[i]}`];
@@ -91,7 +91,6 @@ const finishedRequest = () => {
   const tax = totalToPay * 0.10;
   return totalToPay + tax;
 };
-
 restaurant.order = ordem;
 restaurant.pay = finishedRequest;
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.

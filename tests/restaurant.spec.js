@@ -60,9 +60,11 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
   });
   // test 3
   it('Verifique se o menu passado pra função createMenu é identico ao menu recuperado pela função `otherRestaurant.fetchMenu`', () => {
-    const myMenu = { food: {}, drink: {} };
-    const otherRestaurant = createMenu(myMenu);
-    expect(otherRestaurant.fetchMenu()).toStrictEqual(myMenu)
+    const myMenu = {
+      food: { coxinha: 4.0, sopa: 15.0, salada: 22.0 },
+      drinks: { agua: 4.0, cerveja: 7.0, drink: 18.0 },
+    };
+    expect(restaurant.fetchMenu()).toStrictEqual(myMenu)
   });
   // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
 

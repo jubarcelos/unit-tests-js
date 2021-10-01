@@ -67,7 +67,7 @@ const restaurant = createMenu({
   drinks: { agua: 4.0, cerveja: 7.0, drink: 18.0 },
 });
 
-const order = (request) => {
+const ordem = (request) => {
   restaurant.consumption.push(`${request}`);
 };
 
@@ -92,11 +92,9 @@ const finishedRequest = () => {
   return totalToPay + tax;
 };
 
-restaurant().order = order;
-restaurant().pay = finishedRequest();
+restaurant.order = ordem;
+restaurant.pay = finishedRequest;
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
 module.exports = { createMenu, restaurant };
-
-// const  {createMenu, restaurant} = require('../src/restaurant');

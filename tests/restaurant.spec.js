@@ -1,4 +1,5 @@
-const createMenu = require('../src/restaurant');
+const {createMenu, restaurant } = require('../src/restaurant');  
+// preciso importar as funções (se for chamada dentro de outra não precisa)
  
 /*
   Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível, através desse sistema, cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto através do qual se consegue:
@@ -67,45 +68,40 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
 
   // TESTE 4: 
   it('Verifique se `otherRestaurant.consumption`, após a criação do menu, retorna um array vazio.', () => {
-    const myMenu = { food: {}, drink: {} };
-    const otherRestaurant = createMenu(myMenu);
-    expect(otherRestaurant.consumption).toStrictEqual([]);
+    expect(restaurant.consumption).toStrictEqual([]);
   });
   
   it('Verifique se, ao chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro (como `otherRestaurant.order ela será adicionada ao array retornado em `otherRestaurant.consumption`', () => {
-
-    otherRestaurant.order('coxinha');
-    expect(otherRestaurant.consumption).toEqual(expect.arrayContain(['coxinha']));
+    restaurant.order('coxinha');
+    expect(restaurant.consumption).toEqual(['coxinha']);
   });
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
 
   // TESTE 6: 
   it('Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.', () => {
-    otherRestaurant.order("agua");
-    otherRestaurant.order("sopa");
-    otherRestaurant.order("sashimi");
-    expect(otherRestaurant.consumption).toEqual(['agua', 'sopa', 'sashimi']);
+    restaurant.consumption = [];
+    restaurant.order("agua");
+    restaurant.order("sopa");
+    restaurant.order("sashimi");
+    expect(restaurant.consumption).toEqual(['agua', 'sopa', 'sashimi']);
   });
   
   // TESTE 7
   it('Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.', () => {
-    const myMenu = { food: {}, drink: {} };
-    const otherRestaurant = createMenu(myMenu);
-    otherRestaurant.order('coxinha');
-    otherRestaurant.order('agua');
-    otherRestaurant.order('coxinha');
-    expect(otherRestaurant.consumption).toEqual(['coxinha', 'agua', 'coxinha']);
+    restaurant.consumption = [];
+    restaurant.order('coxinha');
+    restaurant.order('agua');
+    restaurant.order('coxinha');
+    expect(restaurant.consumption).toEqual(['coxinha', 'agua', 'coxinha']);
   });
     
   // TESTE 8: 
   it('Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`', () => {
-    const myMenu = { food: {}, drink: {} };
-    const otherRestaurant = createMenu(myMenu);
-    otherRestaurant.order('coxinha');
-    otherRestaurant.order('agua');
-    otherRestaurant.order('coxinha');
-    expect(otherRestaurant.pay()).toBe(12.0)
-    
+    restaurant.consumption = [];
+    restaurant.order('coxinha');
+    restaurant.order('agua');
+    restaurant.order('coxinha');
+    expect(restaurant.pay()).toBe(13.2)
   });
   // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
 });

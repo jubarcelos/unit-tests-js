@@ -79,7 +79,7 @@ const finishedRequest = () => {
   let foods = restaurant.fetchMenu().food;
   let drink = restaurant.fetchMenu().drinks;
   let requestAll = restaurant.consumption; // array
-  // OBRIGADA Guilherme Augusto pela paciência em me ajudar a entender essas chamadas de objetos.
+  // OBRIGADA Guilherme Augusto pela paciência em me ajudar a entender essas chamadas de objetos, vendo o código dele consegui desenrolar essa parte da questão.
   for (let i = 0; i < requestAll.length; i += 1) {
     if (Object.keys(foods).includes(requestAll[i])) {
       totalToPay += foods[`${requestAll[i]}`];    

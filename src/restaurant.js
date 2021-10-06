@@ -51,13 +51,10 @@
 
 // PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
 //
-const createMenu = (myMenu) => {
-  const objectWithMenu = {
+const createMenu = (myMenu) => ({
     fetchMenu: () => myMenu,
     consumption: [],
-  };
-  return objectWithMenu;
-};
+  });
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, recebe string como parâmetro.
